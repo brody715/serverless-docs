@@ -1,0 +1,15 @@
+@function GetEmail {
+  codeUri = "./code/index.js"
+  handler = "main"
+
+  resource = {
+    cpu = "1000m"
+    memory = "128Mi"
+  }
+}
+
+@application App {
+  functions = [
+    GetEmail
+  ]
+}

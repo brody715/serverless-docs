@@ -1,0 +1,38 @@
+version: "0.1.0"
+modules:
+  - kind: m_inline
+    id: "__main__"
+    blocks:
+      - kind: b_custom
+        block_type: "std/faas::function"
+        name: GetEmail
+        props:
+          - key: codeUri
+            value:
+              kind: v_string
+              value: "./code/index.js"
+          - key: handler
+            value: "main"
+          - key: resource
+            value:
+              kind: v_object
+              props:
+                - key: cpu
+                  value:
+                    kind: v_string
+                    value: "1000m"
+                - key: memory
+                  value:
+                    kind: v_string
+                    value: "128Mi"
+
+      - kind: b_custom
+        block_type: "std/faas::application"
+        name: App
+        props:
+          - key: functions
+            value:
+              kind: v_array
+              items:
+                - kind: v_ref
+                  id: __main__::GetEmail
