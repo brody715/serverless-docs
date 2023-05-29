@@ -4,6 +4,16 @@
 
 执行器使用 nodejs 实现，作为 npm 库 `faasit`
 
+## Components
+
+Executor 分为两个阶段，plan 和 execute
+
+Plan 阶段会根据用户的输入 IR 以及从外部环境（如 Serverless Provider）采集到的信息，生成执行计划，如数据的变更
+
+Plan 生成的执行计划需要可序列化以及反序列化
+
+Execute 阶段会根据执行计划，执行实际的操作，如部署或者删除
+
 ## Use flow
 
 1. 用户使用 `faasit init --name project` 创建 Serverless 项目

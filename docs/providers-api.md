@@ -100,6 +100,11 @@ Serverless 的特点
 | Get Functions   | 获取函数列表 | `POST /system/functions`       |
 | Invoke Function | 调用函数     | `POST /function/{functioName}` |
 
+
+### Openwhisk
+
+见 [./providers/openwhisk.md](./providers/openwhisk.md)
+
 ## 参考资料
 
 - ServerlessDevs - 阿里云函数
