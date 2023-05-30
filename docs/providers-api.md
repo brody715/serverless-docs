@@ -58,6 +58,18 @@ Serverless 的特点
   - 提供本地运行，在线运行，端云联调等功能
   - 支持本地模拟 Serverless 云上环境，用于测试
 
+## Provider
+
+Provider 提供 Serverless 服务，分为以下两类
+
+**公有云提供商**
+
+如阿里云，腾讯云，AWS 等
+
+**开源 Serverless 平台**
+
+如 OpenFaas，OpenWhisk，Knative 等。一般基于 Kubernetes 集群
+
 ### 阿里云 API
 
 **重要 API 整理**
@@ -99,7 +111,6 @@ Serverless 的特点
 | Deploy Function | 创建函数     | `POST /system/functions`       |
 | Get Functions   | 获取函数列表 | `POST /system/functions`       |
 | Invoke Function | 调用函数     | `POST /function/{functioName}` |
-
 
 ### Openwhisk
 
