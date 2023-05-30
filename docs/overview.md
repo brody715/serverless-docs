@@ -1,3 +1,9 @@
+
+## Goal
+
+- Serverless 部署描述
+- Serverless Stub 代码生成
+
 ## Arch
 
 <img src="../assets/faasit-useflow.drawio.svg" />
