@@ -6,7 +6,7 @@
 
 ## Arch
 
-<img src="../assets/faasit-useflow.drawio.svg" />
+<img src="./assets/faasit-useflow.drawio.svg" />
 
 ### IDE Features
 
