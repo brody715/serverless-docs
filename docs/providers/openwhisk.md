@@ -32,6 +32,15 @@ it will stores the properties in `~/.wskprops`
 
 run `wsk list -v` to verify host connection
 
+
+## User
+
+使用 Openwhisk
+
+## 
+
+Openwhisk tigongde API
+
 ## Resource
 
 - Document: https://openwhisk.apache.org/documentation.html
