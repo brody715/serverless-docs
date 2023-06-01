@@ -8,8 +8,6 @@
 
 # API实践
 
-# API实践
-
 想要了解各API的用法，可先在腾讯云官方文档寻找：[云函数 API 概览-API 中心-腾讯云 (tencent.com)](https://cloud.tencent.com/document/api/583/17235)
 
 腾讯云官方推荐[API Explorer](https://cloud.tencent.com/document/product/1278/46697)调试API和生成代码，它提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力：
