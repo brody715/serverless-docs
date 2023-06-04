@@ -1,6 +1,6 @@
 ## CreateService
 
-### 参数
+### 重要参数
 
 
 | 参数名          | 描述                              | 类型    | 是否必填 |
@@ -37,48 +37,11 @@
 
 
 
-### 返回值
-
-
-| 返回值名称      | 描述                           | 类型     |
-| -------------- | ------------------------------ | -------- |
-| requestId      | 请求ID                         | string   |
-| serviceId      | 服务的ID                       | string   |
-| serviceName    | 服务的名称                     | string   |
-| description    | 服务的描述信息                 | string   |
-| internetAccess | 是否允许公网访问               | boolean  |
-| role           | 服务所使用的角色               | string   |
-| vpcConfig      | 服务的VPC配置                   | dict     |
-| logConfig      | 服务的日志配置                   | dict     |
-| nasConfig      | 服务的NAS配置                    | dict     |
-| createTime     | 服务的创建时间                  | string   |
-
-`vpcConfig`字典包含以下键值：
-
-| 键名         | 描述                           | 类型     |
-| ------------ | ------------------------------ | -------- |
-| VpcId        | VPC的ID                         | string   |
-| VSwitchIds   | VSwitch的ID列表                 | list     |
-
-`logConfig`字典包含以下键值：
-
-| 键名         | 描述                           | 类型     |
-| ------------ | ------------------------------ | -------- |
-| Project      | 日志服务的项目名称             | string   |
-| Logstore     | 日志服务的日志库名称           | string   |
-
-`nasConfig`字典包含以下键值：
-
-| 键名         | 描述                           | 类型     |
-| ------------ | ------------------------------ | -------- |
-| MountPoints  | NAS挂载点列表                   | list     |
-| UserId       | 用于访问NAS的用户ID             | string   |
-| GroupId      | 用于访问NAS的用户组ID           | string   |
 
 
 ## GetService
 
-### 参数
+### 重要参数
 
 
 | 参数名        | 描述                               | 类型     | 是否必填 |
@@ -86,46 +49,10 @@
 | serviceName   | 服务的名称                         | string   | 是       |
 
 
-### 返回值
-
-| 返回值名称      | 描述                           | 类型     |
-| -------------- | ------------------------------ | -------- |
-| requestId      | 请求ID                         | string   |
-| serviceId      | 服务的ID                       | string   |
-| serviceName    | 服务的名称                     | string   |
-| description    | 服务的描述信息                 | string   |
-| internetAccess | 是否允许公网访问               | boolean  |
-| role           | 服务所使用的角色               | string   |
-| vpcConfig      | 服务的VPC配置                   | dict     |
-| logConfig      | 服务的日志配置                   | dict     |
-| nasConfig      | 服务的NAS配置                    | dict     |
-| createTime     | 服务的创建时间                  | string   |
-
-`vpcConfig`字典包含以下键值：
-
-| 键名         | 描述                           | 类型     |
-| ------------ | ------------------------------ | -------- |
-| VpcId        | VPC的ID                         | string   |
-| VSwitchIds   | VSwitch的ID列表                 | list     |
-
-`logConfig`字典包含以下键值：
-
-| 键名         | 描述                           | 类型     |
-| ------------ | ------------------------------ | -------- |
-| Project      | 日志服务的项目名称             | string   |
-| Logstore     | 日志服务的日志库名称           | string   |
-
-`nasConfig`字典包含以下键值：
-
-| 键名         | 描述                           | 类型     |
-| ------------ | ------------------------------ | -------- |
-| MountPoints  | NAS挂载点列表                   | list     |
-| UserId       | 用于访问NAS的用户ID             | string   |
-| GroupId      | 用于访问NAS的用户组ID           | string   |
 
 ## CreateFunction
 
-### 参数
+### 重要参数
 
 
 | 参数名           | 描述                                        | 类型         | 是否必填 |
@@ -135,11 +62,7 @@
 | description      | 函数的描述信息                              | string       | 否       |
 | runtime          | 函数的运行环境                              | string       | 是       |
 | handler          | 函数的处理程序                              | string       | 是       |
-| memorySize       | 函数的内存大小（单位：MB）                   | int          | 是       |
-| timeout          | 函数的超时时间（单位：秒）                   | int          | 是       |
 | initializer      | 函数的初始化程序                            | string       | 否       |
-| initializerError | 初始化程序错误处理方式                      | string       | 否       |
-| instanceConcurrency | 函数的实例并发数                          | int          | 否       |
 | customContainerConfig | 函数的自定义容器配置                     | dict         | 否       |
 | caPort           | 函数容器的端口号（仅适用于自定义容器）        | int          | 否       |
 | environmentVariables | 函数的环境变量                           | dict         | 否       |
@@ -147,11 +70,8 @@
 | logConfig        | 函数的日志配置                               | dict         | 否       |
 | nasConfig        | 函数的NAS配置                                | dict         | 否       |
 | mountPoints      | 函数的NAS挂载点列表                          | list[dict]   | 否       |
-| instanceType     | 函数的实例类型                              | string       | 否       |
 | code             | 函数的代码                                  | dict         | 是       |
 | layers           | 函数的Layer列表                             | list[string] | 否       |
-| deadLetterConfig | 函数的死信队列配置                          | dict         | 否       |
-| tracingConfig    | 函数的追踪配置                              | dict         | 否       |
 | caEnable         | 是否开启自定义容器功能（仅适用于自定义容器）  | boolean      | 否       |
 | caFiles          | 自定义容器的CA证书文件列表（仅适用于自定义容器）| list[dict] | 否       |
 
@@ -220,16 +140,10 @@ CreateFunction(serviceName="my-service", functionName="my-function", code=code, 
 
 
 
-### 返回值
-
-- requestId (string): 请求ID。
-- functionId (string): 函数的ID。
-- functionArn (string): 函数的ARN。
-- createTime (string): 函数的创建时间。
 
 ## GetFunction
 
-### 参数
+### 重要参数
 
 以下是GetFunction接口的参数列表，包括参数名、参数类型、是否必填和参数描述：
 
@@ -240,50 +154,115 @@ CreateFunction(serviceName="my-service", functionName="my-function", code=code, 
 | qualifier      | 字符串        | 否       | 函数版本或别名。如果未提供，则返回函数最新版本的信息。                           |
 
 
-### 返回值
-
-- requestId (string): 请求ID。
-- functionId (string): 函数的ID。
-- functionArn (string): 函数的ARN。
-- serviceName (string): 函数所属服务的名称。
-- functionName (string): 函数的名称。
-- handler (string): 函数的处理程序。
-
-
-- runtime (string): 函数的运行环境。
-- code (string): 函数的代码内容。
-- memorySize (integer): 函数的内存配置，单位为MB。
-- timeout (integer): 函数的超时时间，单位为秒。
-- initializer (string): 函数初始化的方法。
-- instanceConcurrency (integer): 函数的并发执行数。
-- customContainerConfig (dict): 自定义容器配置，包括Image、Command、Args等信息。
-- createTime (string): 函数的创建时间。
 
 
 
 
 ## CreateTrigger
 
-### 参数
+### 重要参数
 
-- serviceName (string): 触发器所属服务的名称。
-- functionName (string): 触发器所关联的函数的名称。
-- triggerName (string): 触发器的名称。
-- triggerType (string): 触发器的类型。
-- triggerConfig (dict): 触发器的配置，根据不同类型的触发器而定。
+CreateTrigger函数是用于创建触发器的阿里云函数计算接口。通过该接口，您可以为函数关联不同类型的触发器，例如定时触发器、API网关触发器、对象存储（OSS）触发器等。
 
-### 返回值
+以下是CreateTrigger函数的使用方式：
 
-- requestId (string): 请求ID。
-- triggerId (string): 触发器的ID。
-- triggerArn (string): 触发器的ARN。
-- createTime (string): 触发器的创建时间。
+1. 首先，确保已经创建了需要触发的函数（使用`CreateFunction`函数创建）。
+
+2. 构造`CreateTrigger`函数的请求参数，包括以下必填字段：
+
+   - `serviceName`：函数所属的服务名称。
+   - `functionName`：要创建触发器的函数名称。
+   - `triggerName`：触发器的名称，用于在函数中唯一标识触发器。
+   - `triggerType`：触发器的类型，例如`Timer`（定时触发器）、`OSS`（对象存储触发器）、`HTTP`（HTTP触发器）等。
+   - `triggerConfig`：触发器的配置信息，根据不同类型的触发器有所不同。
+
+3. 根据需要，可以设置CreateTrigger函数的其他可选参数，例如`qualifier`（函数版本或别名）等。
+
+4. 调用CreateTrigger函数，传递请求参数，并获取返回结果。返回结果将包含触发器的相关信息，如触发器ID、触发器状态等。
+
+### 阿里云触发器类型
+
+CreateTrigger函数支持多种触发器类型，您可以根据具体的需求选择适合的触发器类型。以下是一些常见的触发器类型及其简要介绍：
+
+1. 定时触发器（Timer）：根据预设的时间表达式，周期性地触发函数的执行，例如每小时、每天、每周等。可以设置函数在特定时间点或时间间隔内触发。
+
+2. 对象存储触发器（OSS）：当阿里云对象存储（OSS）上的文件发生变化时触发函数执行，例如文件上传、删除等事件。
+
+3. API网关触发器（HTTP）：将函数作为后端服务与阿里云API网关结合，实现基于HTTP请求的触发，例如接收API请求并进行处理。
+
+4. 日志服务触发器（Log）：当日志服务中有新的日志产生时触发函数执行，例如实时处理日志、触发告警等。
+
+5. Table Store触发器（TableStore）：当阿里云Table Store中的数据发生变化时触发函数执行，例如数据更新、插入等操作。
+
+参考网址：[阿里云触发器简介](https://help.aliyun.com/document_detail/53102.html?spm=a2c4g.146104.0.0.3176199eLgjplT)
+
+#### Timer触发器
+
+以下是一个定时触发器配置信息的例子，包括时间表达式和其他可选参数：
+
+```json
+{
+  "serviceName": "my-service",
+  "functionName": "my-function",
+  "triggerName": "my-timer-trigger",
+  "triggerType": "Timer",
+  "triggerConfig": {
+    "cronExpression": "0 0 9 * * ?",  // 每天上午9点触发
+    "enable": true,
+    "payload": "{\"key\": \"value\"}"
+  },
+  "qualifier": "LATEST"
+}
+```
+
+在上述例子中，配置信息的各个字段的含义如下：
+
+- `serviceName`：函数所属的服务名称。
+- `functionName`：要关联定时触发器的函数名称。
+- `triggerName`：定时触发器的名称。
+- `triggerType`：指定为"Timer"，表示创建定时触发器。
+- `triggerConfig`：包含触发器的具体配置信息。
+  - `cronExpression`：时间表达式，指定触发器的触发时间。在此例中，表示每天的上午9点触发。
+  - `enable`：是否启用触发器。
+  - `payload`：可选的触发器参数，作为函数调用时传递的输入参数。在此例中，使用JSON字符串作为示例。
+- `qualifier`：可选参数，指定函数版本或别名。在此例中，设置为"LATEST"，表示使用最新版本的函数。
+
+#### HTTP触发器
+
+以下是一个HTTP触发器的配置信息示例：
+
+```json
+{
+  "serviceName": "my-service",
+  "functionName": "my-function",
+  "triggerName": "my-http-trigger",
+  "triggerType": "HTTP",
+  "triggerConfig": {
+    "authType": "ANONYMOUS",
+    "methods": ["GET", "POST"],
+    "url": "/my-endpoint"
+  },
+  "qualifier": "LATEST"
+}
+```
+
+在上述例子中，配置信息的各个字段的含义如下：
+
+- `serviceName`：函数所属的服务名称。
+- `functionName`：要关联HTTP触发器的函数名称。
+- `triggerName`：HTTP触发器的名称。
+- `triggerType`：指定为"HTTP"，表示创建HTTP触发器。
+- `triggerConfig`：包含触发器的具体配置信息。
+  - `authType`：HTTP触发器的认证类型，可以选择"ANONYMOUS"（匿名访问）或"CUSTOM"（自定义认证）。
+  - `methods`：允许的HTTP请求方法列表。在此例中，允许GET和POST请求。
+  - `url`：定义触发器的URL路径。在此例中，设置为"/my-endpoint"。
+- `qualifier`：可选参数，指定函数版本或别名。在此例中，设置为"LATEST"，表示使用最新版本的函数。
 
 
 
 ## GetTrigger
 
-### 参数
+### 重要参数
 
 以下是GetTrigger接口的参数列表，包括参数名、参数类型、是否必填和参数描述：
 
@@ -294,20 +273,10 @@ CreateFunction(serviceName="my-service", functionName="my-function", code=code, 
 | triggerName | 字符串     | 是      | 要获取的触发器名称。                             |
 
 
-### 返回值
-
-- requestId (string): 请求ID。
-- triggerId (string): 触发器的ID。
-- triggerArn (string): 触发器的ARN。
-- serviceName (string): 触发器所属服务的名称。
-- functionName (string): 触发器所关联的函数的名称。
-- triggerName (string): 触发器的名称。
-- triggerType (string): 触发器的类型。
-- triggerConfig (dict): 触发器的配置。
 
 ## InvokeFunction
 
-### 参数
+### 重要参数
 
 以下是InvokeFunction接口的参数列表，包括参数名、参数类型、是否必填和参数描述：
 
@@ -321,7 +290,3 @@ CreateFunction(serviceName="my-service", functionName="my-function", code=code, 
 | X-Fc-Log-Type     | 字符串     | 否      | 函数调用的日志类型。可选值包括 "None"（无日志）和 "Tail"（返回完整日志）。默认为 "None"。 |
 
 
-### 返回值
-
-- requestId (string): 请求ID。
-- result (string): 函数执行的结果。
