@@ -3,6 +3,7 @@
   - [Langium](dev-libraries/langium.md)
 - [设计](design/)
   - [Faasit 完整语言设计](design/faasit-full-zh.md)
+  - [Serverless 概念模型](design/serverless-concept-models.md)
   - [项目概览](design/project-overview.md)
 - [Serverless 平台](providers/)
   - [阿里云](providers/aliyun.md)
