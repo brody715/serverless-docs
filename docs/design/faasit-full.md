@@ -18,13 +18,13 @@ Faasit offers several language features to facilitate coding, including
 
 The language design and development of the toolchain is **working in progress**.
 
--[]: Design the basis of the language
+- [x] Design the basis of the language
 
 The language features
 
--[]: Define basic types and models
+- [x] Define basic types and models
 
--[]: Define functions, cloud service
+- [x] Define functions, cloud service
 
 ## Overview
 
