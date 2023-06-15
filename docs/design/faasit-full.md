@@ -1,3 +1,7 @@
+---
+ignore: true
+---
+
 # Faasit
 
 Faasit is a domain-specific language (DSL) used for modeling serverless

@@ -1,3 +1,7 @@
+---
+ignore: true
+---
+
 # Intro
 
 简化版 Faasit 语言，现阶段版本的编译器只需支持以下特性

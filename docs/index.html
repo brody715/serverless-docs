@@ -13,6 +13,8 @@
 
 <body>
   <div id="app"></div>
+
+
   <script>
     window.$docsify = {
       name: '',
@@ -21,11 +23,32 @@
       relativePath: true,
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
-      }
+      },
+      plugins: [
+        // EditOnGithubPlugin.create('https://github.com/brody715/serverless-docs/tree/main/docs/')
+      ],
+      count: {
+        countable: true,
+        position: 'top',
+        margin: '10px',
+        float: 'right',
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese',
+        localization: {
+          words: "",
+          minute: ""
+        },
+        isExpected: true
+      },
     }
   </script>
+
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/front-matter.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+  </script>
 </body>
 
 </html>

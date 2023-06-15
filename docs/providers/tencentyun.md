@@ -1,3 +1,7 @@
+---
+title: 腾讯云
+---
+
 # 前言
 
 腾讯云官方推荐并提供了[使用控制台](https://cloud.tencent.com/document/product/583/37509)和使用[Serverless 组件](https://cloud.tencent.com/document/product/1154/39271)（Tencent Serverless Cloud Framework）两种方式用于管理云函数，分别在浏览器中和本地CLI中进行开发。这两种方式更加方便开发者使用。

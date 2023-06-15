@@ -1,0 +1,20 @@
+{
+  "name": "serverless-docs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "gen-sidebar": "tsx ./scripts/gen-sidebar.ts",
+    "serve": "docsify serve docs/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^20.3.1",
+    "docsify": "^4.13.0",
+    "globby": "^13.1.4",
+    "js-yaml": "^4.1.0",
+    "tsx": "^3.12.7"
+  }
+}
