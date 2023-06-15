@@ -1,6 +1,10 @@
 ## Intro
 
-文档见 [./docs](./docs)
+文档源码见 [./docs](./docs)
+
+在线文档见 [https://brody715.github.io/serverless-docs/](https://brody715.github.io/serverless-docs/)
+
+注：在线文档会有一定时间的更新延迟，直接在 Github 中预览 Markdown 能够得到最新的文档。
 
 项目代码见 [https://github.com/brody715/faasit](https://github.com/brody715/faasit)
 

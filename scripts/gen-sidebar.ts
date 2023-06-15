@@ -21,7 +21,8 @@ const dirConfigs: DirConfig[] = [
   {name: "design", title: "设计"},
   {name: "dev-libraries", title: "开发框架"},
   {name: "providers", title: "Serverless 平台"},
-  {name: "tasks", title: "相关工具"},
+  {name: "similar-tools", title: "相关工具"},
+  {name: "tasks", title: "任务"},
 ];
 
 // Functions

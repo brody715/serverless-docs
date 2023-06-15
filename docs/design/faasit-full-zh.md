@@ -36,7 +36,7 @@ Faasit 不是通用语言(GPL)，目前不支持条件、循环或递归。它�
 [Terraform](https://github.com/hashicorp/terraform)或其他 DSL。
 
 Faasit 在软件工程中应用了模型驱动工程(MDE)的概念。工具链使用模型转换技术将 DSL
-转换为变体模型。
+转换为多种模型。
 
 Faasit 提供了两个语言接口: DSL 和中间表示(IR)。
 
@@ -152,6 +152,10 @@ Faasit 的类型系统定义了值和用户定义类型的类型。 Faasit 中�
 在一些面向对象语言中，`struct`常用于表示`object`、`class` 或 `entity`
 
 一个`struct`包含一组属性，用户可以使用它来表示不同类型的模型。
+
+类型可在语义分析阶段进行类型计算，并进行语法检测，检查块或者变量的使用是否满足约束。
+
+TODO: 类型系统定义
 
 DSL 示例:
 

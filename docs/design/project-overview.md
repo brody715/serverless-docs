@@ -47,7 +47,9 @@ Serverless 应用的部署模型。
 
 ## 解决方案
 
-我们提出了 Faasit 系统，包括 Faasit DSL、Faasit IR 及 Faasit 工具链。使用 Faasit DSL 描述 Serverless 应用部署信息，并利用 Faasit 工具自动执行部署、本地测试、代码生成和测试用例生成等功能。
+我们提出了 Faasit 系统，包括 Faasit DSL、Faasit IR 及 Faasit 工具链。使用 Faasit
+DSL 描述 Serverless 应用部署信息，并利用 Faasit 工具自动执行部署、本地测试、代码
+生成和测试用例生成等功能。
 
 具体解决方案如下：
 
@@ -59,32 +61,26 @@ Serverless 应用的部署模型。
 ### Faasit 可能的用途
 
 - 同一份应用部署声明，可部署至不同的云平台
-- 定义复杂拥有复杂关系的函数部署，如数据流处理 DAG
+- 自动化生成 Stub 代码，提供统一编程模型
+- 定义拥有复杂关系的函数部署，如数据流处理 DAG
 - 本地搭建模拟环境
-- 自动化生成 Stub 代码
 - 测试用例自动生成
 - 可视化函数以及部署信息
 - 静态分析检查函数是否满足某些约束
 
 ## 相关工作
 
-TODO
+- Serverless Framework
 
-### Serverless Framework
+- Serverless Devs
 
-### Serverless Devs
-
-### Terraform
+- Terraform
 
 ## Faasit 系统设计
 
 系统分为两大功能模块，Faasit DSL 模块，Faasit 执行器模块
 
 两个模块通过规范化中间对象表示 Faasit IR 进行交互
-
-### DSL 模块
-
-### 执行器模块
 
 ## Faasit 语言设计
 
@@ -97,10 +93,6 @@ DSL 与 IR 分离的原因
 - 在设计过程中，DSL 的语法细节等可能变动较大，而 IR 规范基本稳定，变化很小
 - 编译器在语义分析阶段，会执行语法脱糖、模块解析、符号表构建、类型计算与推导、类型检查等步骤。
   - 这些语义计算结果将存放到 IR 中，插件开发者可直接使用这些信息，而不需要再对模块，符号，类型进行额外复杂的处理。
-
-### DSL
-
-### IR
 
 ## 完整功能清单
 
@@ -117,8 +109,20 @@ DSL 与 IR 分离的原因
 
 **Faasit DSL，IR，Plan 示例图片**
 
-<img src="../assets/faasit-dsl-ir-plan.drawio.svg">
+![](../assets/faasit-dsl-ir-plan.drawio.svg)
 
 **Faasit 用例图 1**
 
-<img src="../assets/faasit-useflow.drawio.svg" />
+![](../assets/faasit-useflow.drawio.svg)
+
+**Faasit 流程图 1**
+
+![](../assets/faasit-arch/flow1.drawio.svg)
+
+**Faasit 架构图 1**
+
+![](../assets/faasit-arch/arch1.drawio.svg)
+
+**Faasit DSL 1**
+
+![](../assets/faasit-arch/dsl1.drawio.svg)
