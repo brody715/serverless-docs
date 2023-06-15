@@ -78,15 +78,13 @@ TODO
 
 两个模块通过规范化中间对象表示 Faasit IR 进行交互
 
-<img src="../assets/faasit-useflow.drawio.svg" />
-
 ### DSL 模块
 
 ### 执行器模块
 
 ## Faasit 语言设计
 
-详细设计见 [faasit-full-zh.md](design/faasit-full-zh.md)
+详细设计见 [faasit-full-zh.md](./faasit-full-zh.md)
 
 DSL 与 IR 分离的原因
 
@@ -105,8 +103,18 @@ DSL 与 IR 分离的原因
 ## 当前进度
 
 - [x] 通过对腾讯云、阿里云、OpenFaaS 的前期调研，初步提炼出 Serverless 应用的概念模型
-  - Serverless 概念模型 [serverless-concept-models.md](design/serverless-concept-models.md)
+  - Serverless 概念模型 [serverless-concept-models.md](./serverless-concept-models.md)
 - [x] 设计完成初版的 Faasit DSL 与 Faasit IR 语言规范，涵盖重要的语言特性
-  - 语言规范 [faasit-full-zh.md](design/faasit-full-zh.md)
+  - 语言规范 [faasit-full-zh.md](./faasit-full-zh.md)
 - [x] 实现 Faasit DSL 编译器以及 Language Server 原型，能够将 DSL 转换为 IR，提供基本的 IDE 功能
 - [x] 实现 Faasit 执行器原型，能够利用 IR 在 OpenFaaS 平台上执行实际的应用部署
+
+## 图片
+
+**Faasit DSL，IR，Plan 示例图片**
+
+<img src="../assets/faasit-dsl-ir-plan.drawio.svg">
+
+**Faasit 用例图 1**
+
+<img src="../assets/faasit-useflow.drawio.svg" />
