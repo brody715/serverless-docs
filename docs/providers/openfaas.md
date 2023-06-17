@@ -27,6 +27,13 @@ Install the OpenFaas app
 arkade install openfaas
 ```
 
+Get the faas-cli
+
+```sh
+curl -SLsf https://cli.openfaas.com | bash
+mv faas-cli ~/tools/bin
+```
+
 ## Features
 
 ### Deploy
