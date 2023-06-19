@@ -17,6 +17,9 @@ devDependencies:
   globby:
     specifier: ^13.1.4
     version: 13.1.4
+  husky:
+    specifier: ^8.0.3
+    version: 8.0.3
   js-yaml:
     specifier: ^4.1.0
     version: 4.1.0
@@ -396,6 +399,12 @@ packages:
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
+    dev: true
+
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ignore@5.2.4:
