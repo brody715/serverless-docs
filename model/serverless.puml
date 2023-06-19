@@ -1,0 +1,32 @@
+@startuml serverless
+
+class Application
+class Service
+class Function
+class Triger
+class Handler
+class ExternalService
+class Resource
+class Deployment
+class Provider
+class ResourceBinding
+class ServiceBinding
+
+Application "1" *-- "1..n" Service
+Application "1" *-- "1..n" ExternalService
+Service "1" *-- "1..n" Function
+Service "1" -- "1" Deployment
+
+Function "1" *-- "1" Handler
+
+Handler "1" -- "1" Triger
+Triger "1" -- "1" Resource
+
+Deployment "1" *-- "*" Resource
+Deployment "1" *-- "*" ExternalService
+Deployment "1" o-- "1..n" Provider
+Resource "1" --right "1..n" ResourceBinding
+ExternalService "1" -- "1..n" ServiceBinding
+Provider "1" *--down "*" ResourceBinding
+Provider "1" *--right "*" ServiceBinding
+@enduml
