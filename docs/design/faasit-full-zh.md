@@ -131,15 +131,15 @@ modules:
     kind: m_inline
     blocks:
       - kind: b_custom
-        block_type: "core/faas::function"
+        block_type: "std/faas::function"
         name: "GetEmail"
         props: {}
         ...
     symbols:
-      - id: "core/faas::function"
+      - id: "std/faas::function"
         kind: "b_block"
         ...
-  - id: core/faas
+  - id: std/faas
     kind: m_ref
     version: 0.1.0
 ```
@@ -208,7 +208,6 @@ Faasit 支持字面值，简单惰性求值表达式以及组合值
 
 - ref: `{ functions = [GetEmail]}`
 
-
 DSL 示例
 
 ```faasit
@@ -233,7 +232,6 @@ const {
   }
 }
 ```
-
 
 IR 示例
 
