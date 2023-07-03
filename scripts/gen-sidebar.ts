@@ -24,9 +24,9 @@ const dirConfigs: DirConfig[] = [
   {name: "dev-libraries", title: "开发框架"},
   {name: "providers", title: "Serverless 平台"},
   {name: "similar-tools", title: "相关工具"},
-  {name: "tasks", title: "任务"},
   {name: "materials", title: "资料"},
   {name: "demo", title: "演示"},
+  {name: "tasks", title: "任务"},
 ];
 
 // Functions
@@ -220,9 +220,13 @@ async function main() {
   // only one level
   let files = await globby("*/*.md", {
     cwd: "docs",
+    objectMode: true,
+    stats: true,
   });
 
-  const content = await generate(files);
+  files.sort((obj1, obj2) => obj2.stats.ctimeMs - obj1.stats.ctimeMs);
+
+  const content = await generate(files.map(f => f.path));
 
   // write to sidebar
   await fsp.writeFile("docs/_sidebar.md", content);

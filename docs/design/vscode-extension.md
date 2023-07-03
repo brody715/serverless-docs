@@ -1,4 +1,4 @@
-# Faasit Vscode Extensio
+# Faasit Vscode Extension
 
 ## Principle
 
