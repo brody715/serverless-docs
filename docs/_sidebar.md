@@ -1,7 +1,7 @@
 - [设计](/design)
+  - [Faasit 语言设计 (完整版)](/design/faasit-full-zh.md)
   - [Faasit Vscode Extension](/design/vscode-extension.md)
   - [Faasit 组件设计](/design/components-design.md)
-  - [Faasit 语言设计 (完整版)](/design/faasit-full-zh.md)
   - [项目概述](/design/project-overview.md)
   - [Faasit 执行器](/design/executor.md)
   - [Serverless 概念模型](/design/serverless-concept-models.md)
