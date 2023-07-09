@@ -27,6 +27,9 @@
       plugins: [
         // EditOnGithubPlugin.create('https://github.com/brody715/serverless-docs/tree/main/docs/')
       ],
+      mermaidConfig: {
+        querySelector: ".mermaid"
+      },
       count: {
         countable: true,
         position: 'top',
@@ -48,6 +51,12 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/front-matter.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true });
+    window.mermaid = mermaid;
+  </script>
+  <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
   </script>
 </body>
 
