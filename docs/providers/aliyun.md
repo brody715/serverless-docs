@@ -2,6 +2,171 @@
 title: 阿里云
 ---
 
+# 阿里云函数计算FC介绍
+
+## 函数
+
+阿里云的函数分为2种：`事件请求处理程序(Event Handler)`以及`HTTP请求处理程序(HTTP Handler)`。
+
+### 事件请求处理程序
+
+阿里云事件触发函数是基于事件的函数计算服务，通过事件触发来执行特定的业务逻辑。以下以Node.js为例介绍阿里云事件触发函数的主要代码和触发形式：
+
+```javascript
+// index.js
+
+// 事件处理函数
+exports.handler = function(event, context, callback) {
+  // 在这里编写事件处理逻辑
+  console.log('事件触发成功！');
+  
+  // 回调callback函数，通知函数执行成功
+  callback(null, '事件触发成功！');
+};
+```
+
+在上述示例代码中，我们定义了一个事件处理函数`handler`。当事件触发时，函数将会执行其中的代码逻辑。
+
+触发形式：
+
+阿里云事件触发函数可以通过多种触发器来触发执行，包括但不限于以下方式：
+
+1. **定时触发器（Timer）**：可以设置函数在特定时间点或时间间隔内触发。例如，每隔5分钟执行一次函数。
+
+2. **对象存储（OSS）触发器**：当OSS上的对象发生变化时，触发函数执行。例如，当有新的文件上传到OSS时触发函数。
+
+3. **日志服务触发器**：当日志服务中有新的日志产生时，触发函数执行。例如，实时处理日志数据。
+
+4. **消息队列触发器**：当消息队列中有新的消息到达时，触发函数执行。例如，异步处理消息。
+
+5. **云监控触发器**：当云监控中监控指标达到阈值时，触发函数执行。例如，当CPU利用率过高时触发函数。
+
+
+### HTTP请求处理程序
+
+阿里云HTTP触发函数是通过HTTP请求来触发执行的函数计算服务。以下以Node.js为例介绍阿里云HTTP触发函数的主要代码和触发形式：
+
+### Node.js HTTP触发函数示例代码：
+
+```javascript
+// index.js
+
+exports.handler = (req, resp, context) => {
+    console.log("receive body: ", req.body.toString());
+    resp.setHeader("Content-Type", "text/plain");
+    resp.send('<h1>Hello, world!</h1>');
+}     
+```
+
+在上述示例代码中，我们定义了一个HTTP触发函数`handler`。当有HTTP请求到达时，函数将执行其中的代码逻辑，并返回HTTP响应给调用方。
+
+**触发形式：**
+
+阿里云HTTP触发函数可以通过多种方式触发执行，常见的触发形式有以下两种：
+
+1. **通过API网关触发**：在阿里云函数计算中，您可以创建一个API网关触发器，将API网关与函数关联。然后，当有HTTP请求到达API网关的API接口时，API网关会将请求转发给关联的函数，从而触发函数执行。
+
+2. **直接通过HTTP请求触发**：您可以直接使用HTTP工具（如curl或Postman）向函数计算的HTTP入口发送HTTP请求，即可触发函数执行。
+
+   在直接通过HTTP请求触发时，请求需要包含函数的URL地址、HTTP请求方法、请求头等信息。函数计算会解析HTTP请求，并根据请求的参数执行相应的函数。
+
+在函数中，您可以根据HTTP请求的方法、路径、请求参数等信息来实现不同的业务逻辑，并返回相应的HTTP响应给调用方。
+
+## 阿里云触发器
+
+函数计算提供了一种事件驱动的计算模型。函数的执行是由事件驱动的。函数的执行可以通过函数计算控制台或SDK触发，也可以由其他一些事件源来触发。您可以在指定函数中创建触发器，该触发器描述了一组规则，当某个事件满足这些规则，事件源就会触发关联的函数。
+
+> note: 当函数中有HTTP触发器时，它便不能创建其他的触发器
+
+### 事件形式触发器
+
+#### 定时触发器
+
+函数计算支持配置定时触发器（Time Trigger），可以在指定的时间点自动触发函数执行。
+
+**使用场景**
+
+定时触发器会在指定时间自动触发函数执行。定时任务的场景非常广泛，包括但不限于以下使用场景：
+
+- 批量数据的定时处理，例如每1小时收集全量数据并生成报表。
+- 日常行为的调度，例如整点发送优惠券。
+- 与业务解耦的异步任务，例如每天0点清理数据。
+
+**触发方式**
+
+定时触发器有如下的触发方式：
+
+- 间隔触发：每隔几分钟触发一次函数
+- 指定时间：指定该触发器会在特定时间触发、
+- 自定义：Cron表达式
+
+**入口参数**
+
+定时触发器会按照以下event格式来触发函数。
+
+```json
+{
+    "triggerTime":"2018-02-09T05:49:00Z",
+    "triggerName":"timer-trigger",
+    "payload":"awesome-fc"
+}            
+```
+
+测试函数示例如下：
+
+```python
+import json
+import logging
+
+logger = logging.getLogger()
+
+def handler(event, context):
+    logger.info('event: %s', event)
+
+    # Parse the json
+    evt = json.loads(event)
+    triggerName = evt["triggerName"]
+    triggerTime = evt["triggerTime"]
+    payload = evt["payload"]
+
+    logger.info('triggerName: %s', triggerName)
+    logger.info("triggerTime: %s", triggerTime)
+    logger.info("payload: %s", payload)     
+
+    return 'Timer Payload: ' + payload                      
+```
+
+
+### HTTP触发器
+
+HTTP触发器有别于其他触发器，函数签名是请求（Request）和响应（Response）对象，而不是事件（event）对象。所以HTTP触发器没有事件格式。
+
+#### 协议支持
+
+- HTTP/HTTPS协议
+  
+  支持GET、POST、PUT、DELETE、HEAD、PATCH和OPTIONS方式触发函数，适用于简单的请求-响应场景。
+
+- WebSocket协议
+  
+  支持GET方式触发函数，适用长连接、实时消息等场景。
+
+- gRPC协议
+  
+  支持gRPC协议触发函数，适用于低延迟、高性能、使用ProtoBuf支持多语言通信的场景。
+
+#### HTTP触发器的入口函数形式
+
+
+**HTTP协议**
+
+设置HTTP触发器的函数和普通函数的入口函数是有差异的，左边的普通函数与右边设置了HTTP触发器函数的对比示例，如下图所示。
+
+![](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7670095951/p100655.png)
+
+
+# OpenAPI
+
 ## CreateService
 
 ### 重要参数
