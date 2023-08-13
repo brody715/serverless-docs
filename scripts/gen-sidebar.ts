@@ -23,6 +23,7 @@ const dirConfigs: DirConfig[] = [
   {name: "design", title: "设计"},
   {name: "dev-libraries", title: "开发框架"},
   {name: "providers", title: "Serverless 平台"},
+  {name: "providers/knative", title: "Knative"},
   {name: "similar-tools", title: "相关工具"},
   {name: "materials", title: "资料"},
   {name: "demo", title: "演示"},
@@ -30,6 +31,16 @@ const dirConfigs: DirConfig[] = [
 ];
 
 // Functions
+
+function getPathLevel(path: string): number {
+  let cnt = 0;
+  for (const ch of path) {
+    if (ch === "/") {
+      cnt++;
+    }
+  }
+  return cnt;
+}
 
 function groupby<T>(items: T[], key: (v: T) => string): Map<string, T[]> {
   const m: Map<string, T[]> = new Map();
@@ -199,7 +210,12 @@ async function generate(paths: string[]) {
       continue;
     }
 
-    content += `- [${dirConfig.title}](/${dirConfig.name})\n`;
+    const level = getPathLevel(dirConfig.name);
+
+    const indent = '  '.repeat(level)
+
+    content +=
+      indent + `- [${dirConfig.title}/](/${dirConfig.name})\n`;
     for (const file of files) {
       const header = file.header;
 
@@ -209,7 +225,7 @@ async function generate(paths: string[]) {
 
       const title = header.title ?? file.name;
 
-      content += `  - [${title}](/${file.dir}/${file.name}.md)\n`;
+      content += indent + `  - [${title}](/${file.dir}/${file.name}.md)\n`;
     }
   }
 
@@ -218,7 +234,7 @@ async function generate(paths: string[]) {
 
 async function main() {
   // only one level
-  let files = await globby("*/*.md", {
+  let files = await globby("*/**/*.md", {
     cwd: "docs",
     objectMode: true,
     stats: true,
@@ -226,7 +242,7 @@ async function main() {
 
   files.sort((obj1, obj2) => obj2.stats.ctimeMs - obj1.stats.ctimeMs);
 
-  const content = await generate(files.map(f => f.path));
+  const content = await generate(files.map((f) => f.path));
 
   // write to sidebar
   await fsp.writeFile("docs/_sidebar.md", content);

@@ -1,7 +1,3 @@
----
-title: Knative
----
-
 # Knative
 
 Serverless Containers in Kubernetes environments
