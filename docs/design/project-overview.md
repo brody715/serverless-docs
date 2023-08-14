@@ -119,6 +119,10 @@ DSL 与 IR 分离的原因
 
 ![](../assets/faasit-arch/flow1.drawio.svg)
 
+**Faasit 流程图 2**
+
+![](../assets/faasit-arch/flow2.drawio.svg)
+
 **Faasit 架构图 1**
 
 ![](../assets/faasit-arch/arch1.drawio.svg)
