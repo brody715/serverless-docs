@@ -123,6 +123,10 @@ DSL 与 IR 分离的原因
 
 ![](../assets/faasit-arch/flow2.drawio.svg)
 
+**Faasit 流程图 3**
+
+![](../assets/faasit-arch/flow3.drawio.svg)
+
 **Faasit 架构图 1**
 
 ![](../assets/faasit-arch/arch1.drawio.svg)
@@ -130,3 +134,7 @@ DSL 与 IR 分离的原因
 **Faasit DSL 1**
 
 ![](../assets/faasit-arch/dsl1.drawio.svg)
+
+**Faasit UML 1**
+
+![](../assets/faasit-arch/uml1.svg)

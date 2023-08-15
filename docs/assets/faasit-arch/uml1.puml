@@ -1,0 +1,98 @@
+@startuml uml1
+
+object "**Secret**" as Secret {
+  scope: string
+  name: string
+  type: string
+  value: any
+}
+
+object "**SecretRef**" as SecretRef {
+  scope: string
+  name: string
+}
+
+object "**Application**" as Application {
+  name: string
+}
+
+object "**Provider**" as Provider {
+  name: string
+  type: string
+  params: any
+}
+
+object "**OpenFaasProvider**" as OpenFaasProvider {
+  ...
+}
+object "**KnativeProvider**" as KnativeProvider {
+  ...
+}
+object "**AliCloudProvider**" as AliCloudProvider {
+  ...
+}
+object "**TencentCloudProvider**" as TencentCloudProvider {
+  ...
+}
+
+
+Provider <|-- KnativeProvider
+AliCloudProvider -|> Provider
+TencentCloudProvider --|> Provider
+Provider <|- OpenFaasProvider
+
+object "**Function**" as Function {
+  name: string
+  runtime: string
+  codeDir: string
+  role: string
+}
+
+object "**Trigger**" as Trigger {
+  name: string
+  type: string
+  params: any
+}
+
+object "**HttpTrigger**" as HttpTrigger {
+  method: string
+  path: string
+}
+
+object "**EventTrigger**" as EventTrigger {
+  topic: string
+}
+
+Trigger <|-- HttpTrigger
+Trigger <|-- EventTrigger
+
+object "**Pubsub**" as Pubsub
+
+object "**Event**" as Event {
+  name: string
+  type: string
+  data: type
+}
+
+object "**Resource**" as Resource {
+  cpu: string
+  memory: string
+}
+
+Application "1" *-- "n" Secret: secrets
+
+Application "1" *-- "n" Provider: providers
+
+Application "1" *-- "n" Function: functions
+
+Function "1" *-- "n" Trigger: triggers
+
+Function "1" *-- "n" Pubsub: pubsub
+
+Function "1" *-- "1" Resource: resource
+
+Pubsub "1" *-- "n" Event: events
+
+Provider "1" *-- "n" SecretRef
+
+@enduml
