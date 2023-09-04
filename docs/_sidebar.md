@@ -1,4 +1,5 @@
 - [设计/](/design)
+  - [设计目标](/design/goals.md)
   - [项目概述](/design/project-overview.md)
   - [Faasit Block 设计](/design/faasit-block.md)
   - [Faasit 语言设计 (完整版)](/design/faasit-full-zh.md)
