@@ -84,13 +84,11 @@ Library 配置文件实例
 ```json
 {
   "faasit": {
-    "library": {
-      "prefix": "brody715.com/faasit-samples"
-    },
-    "deps": {
+    "prefix": "brody715.com/faasit-samples",
+    "deps": [
       // 表示 node_modules 中的 @faasit/std 是 Faasit Library
-      "@faasit/std": {}
-    }
+      {"id": "@faasit/std"}
+    ]
   },
   // nodejs configs
   "devDependencies": {
@@ -99,6 +97,18 @@ Library 配置文件实例
     "@faasit/std": "^0.0.1",
     "@faasit/swagger": "^0.0.1"
   }
+}
+```
+
+或者在 `main.ft` / `lib.ft` 中使用 `lib` 子块定义 Library 配置
+
+```faasit
+lib {
+  prefix = "brody715.com/faasit-samples"
+  deps = [
+    // 表示 node_modules 中的 @faasit/std 是 Faasit Library
+    { id = "@faasit/std" }
+  ]
 }
 ```
 
